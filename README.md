@@ -17,14 +17,14 @@ Netlify (static UI) -> HTTPS -> Caddy -> Mullion Core
 
 ## Prerequisites
 
-- Ubuntu Server 22.04 LTS VM
+- Ubuntu Server 22.04 LTS or 24.04 LTS VM
 - Ports 22, 80, 443 open inbound
 - A public DNS label for the VM (Azure provides one for free)
 
 ## Azure VM Preparation (One Time)
 
 1. **Create the VM**
-   - Image: Ubuntu Server 22.04 LTS (minimal)
+   - Image: Ubuntu Server 22.04 LTS or 24.04 LTS (minimal)
    - Size: B2v2
    - Authentication: SSH key (no password)
 

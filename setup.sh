@@ -14,8 +14,12 @@ CONFIG_FILE="$SCRIPT_DIR/mullion.config.json"
 STEP="Check Ubuntu version"
 if [[ -f /etc/os-release ]]; then
   . /etc/os-release
-  if [[ "${ID}" != "ubuntu" || "${VERSION_ID}" != "22.04" ]]; then
-    echo "Unsupported Ubuntu version: ${ID} ${VERSION_ID}. Expected 22.04." >&2
+  if [[ "${ID}" != "ubuntu" ]]; then
+    echo "Unsupported Ubuntu distribution: ${ID}. Expected ubuntu." >&2
+    exit 1
+  fi
+  if [[ "${VERSION_ID}" != "22.04" && "${VERSION_ID}" != "24.04" ]]; then
+    echo "Unsupported Ubuntu version: ${VERSION_ID}. Expected 22.04 or 24.04." >&2
     exit 1
   fi
 else
