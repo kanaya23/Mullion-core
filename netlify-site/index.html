@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mullion Core</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Mullion Core</h1>
+        <p class="subtitle">One browser. One task. Wake up, execute, shut down.</p>
+      </header>
+
+      <section id="view-dashboard" class="view">
+        <div class="status-panel">
+          <div class="status-line">
+            <span id="status-dot" class="status-dot status-offline"></span>
+            <span id="status-text">Checking connection...</span>
+          </div>
+          <div class="status-details">
+            <div>VM: <span id="status-domain">-</span></div>
+            <div>Response: <span id="status-latency">-</span></div>
+            <div>Last check: <span id="status-last">-</span></div>
+          </div>
+        </div>
+
+        <div class="vitals">
+          <h2>VM Vitals</h2>
+          <div class="vitals-grid">
+            <div><span>Memory</span><strong id="vitals-memory">-</strong></div>
+            <div><span>Uptime</span><strong id="vitals-uptime">-</strong></div>
+            <div><span>Status</span><strong id="vitals-status">-</strong></div>
+          </div>
+        </div>
+
+        <div class="stacks">
+          <h2>Available Stacks</h2>
+          <div id="stack-list" class="stack-list"></div>
+        </div>
+      </section>
+
+      <section id="view-run" class="view hidden">
+        <button class="link-button" id="back-dashboard">← Back to Dashboard</button>
+        <h2 id="run-stack-name">Stack</h2>
+        <p id="run-stack-description" class="subtitle"></p>
+
+        <div class="capabilities">
+          <h3>Capabilities</h3>
+          <div id="run-capabilities" class="capability-list"></div>
+        </div>
+
+        <div id="param-section" class="params">
+          <h3>Parameters</h3>
+          <form id="param-form"></form>
+          <div id="param-json-wrapper" class="hidden">
+            <label for="param-json">Task Params (JSON)</label>
+            <textarea id="param-json" rows="6">{}</textarea>
+          </div>
+          <div id="param-error" class="error"></div>
+        </div>
+
+        <button id="run-button" class="primary">Run Stack</button>
+      </section>
+
+      <section id="view-result" class="view hidden">
+        <h2>Task Result</h2>
+        <div id="result-status" class="result-status">Waiting...</div>
+        <div id="result-spinner" class="spinner"></div>
+        <pre id="result-output" class="result-output hidden"></pre>
+        <div id="result-error" class="error hidden"></div>
+        <div class="result-actions">
+          <button id="copy-json" class="secondary hidden">Copy JSON</button>
+          <button id="run-again" class="primary">Run Again</button>
+          <button id="back-dashboard-result" class="secondary">Back to Dashboard</button>
+        </div>
+      </section>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

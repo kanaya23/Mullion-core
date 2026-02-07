@@ -1,0 +1,33 @@
+{
+  "name": "example-stack",
+  "description": "Sample stack demonstrating Mullion API usage.",
+  "profile": "example-stack",
+  "entry_url": "https://example.com/",
+  "timeout": 120,
+  "permissions": {
+    "origins": ["https://example.com/*"],
+    "capabilities": ["cookies", "storage", "webRequest", "tabs"]
+  },
+  "params": [
+    {
+      "name": "note",
+      "label": "Optional note",
+      "type": "text",
+      "placeholder": "Add a note for this run"
+    },
+    {
+      "name": "captureTitle",
+      "label": "Capture page title",
+      "type": "checkbox",
+      "default": true
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://example.com/*"],
+      "js": ["content/inject.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "intercept_patterns": ["**/*"]
+}

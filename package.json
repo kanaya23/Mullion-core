@@ -1,0 +1,16 @@
+{
+  "name": "mullion-core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Lightweight Playwright-based stack runner with extension-like capabilities.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "minimatch": "^9.0.3",
+    "playwright": "^1.42.1"
+  }
+}
