@@ -1,0 +1,12 @@
+{
+  "id": "aa92d249-de26-4f51-aaea-d4cca13f3be2",
+  "stack_name": "example-stack",
+  "status": "error",
+  "started_at": "2026-02-07T16:10:27.995Z",
+  "finished_at": "2026-02-07T16:10:28.019Z",
+  "error": {
+    "message": "browserType.launchPersistentContext: Executable doesn't exist at /home/azureuser/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64/chrome-headless-shell\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+    "phase": "execution",
+    "stack": "browserType.launchPersistentContext: Executable doesn't exist at /home/azureuser/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64/chrome-headless-shell\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝\n    at async launchBrowser (/home/azureuser/Mullion-core/lib/browser.js:43:19)\n    at async runStack (/home/azureuser/Mullion-core/lib/runner.js:89:15)"
+  }
+}

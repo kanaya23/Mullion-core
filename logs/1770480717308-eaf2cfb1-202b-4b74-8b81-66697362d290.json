@@ -1,0 +1,12 @@
+{
+  "id": "eaf2cfb1-202b-4b74-8b81-66697362d290",
+  "stack_name": "example-stack",
+  "status": "error",
+  "started_at": "2026-02-07T16:11:53.849Z",
+  "finished_at": "2026-02-07T16:11:57.308Z",
+  "error": {
+    "message": "page.evaluate: SyntaxError: Illegal return statement\n    at eval (<anonymous>)\n    at eval (eval at evaluate (:290:30), <anonymous>:1:22)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+    "phase": "execution",
+    "stack": "page.evaluate: SyntaxError: Illegal return statement\n    at eval (<anonymous>)\n    at eval (eval at evaluate (:290:30), <anonymous>:1:22)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at Object.script (/home/azureuser/Mullion-core/lib/mullion-api.js:117:21)\n    at module.exports (/home/azureuser/Mullion-core/stacks/example-stack/main.js:6:40)\n    at async runStack (/home/azureuser/Mullion-core/lib/runner.js:145:20)"
+  }
+}

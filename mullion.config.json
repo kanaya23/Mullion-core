@@ -1,8 +1,11 @@
 {
-  "domain": "mullion.eastus.cloudapp.azure.com",
+  "domain": "mullion.indonesiacentral.cloudapp.azure.com",
   "port": 3000,
-  "auth_token": "replace-with-strong-token",
+  "auth_token": "4K9vXpZ8uR2mQ5nT1vB7yX9wP3jK6hL4",
   "max_wake_duration_seconds": 300,
   "log_retention_count": 50,
-  "allowed_origin": "https://yoursite.netlify.app"
+  "allowed_origin": "https://mullioncore.netlify.app"
 }
+
+
+
