@@ -13,7 +13,7 @@
       "https://generativelanguage.googleapis.com/*",
       "https://google.serper.dev/*"
     ],
-    "capabilities": ["cookies", "storage", "webRequest", "tabs"]
+    "capabilities": ["cookies", "storage", "tabs"]
   },
   "ui_path": "stacks/shopping-assistant.html",
   "content_scripts": [
