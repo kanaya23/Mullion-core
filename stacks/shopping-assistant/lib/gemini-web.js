@@ -159,14 +159,18 @@ async function sendPrompt(page, promptText) {
 
   await page.waitForFunction(
     ({ selector, count }) => document.querySelectorAll(selector).length > count,
-    { timeout: 180000 },
-    { selector: SELECTORS.responseBlock, count: startCount }
+    { selector: SELECTORS.responseBlock, count: startCount },
+    { timeout: 180000 }
   );
 
-  await page.waitForFunction(() => {
-    const stopButton = document.querySelector('button.send-button.stop mat-icon[fonticon="stop"]');
-    return !stopButton;
-  }, { timeout: 180000 });
+  await page.waitForFunction(
+    () => {
+      const stopButton = document.querySelector('button.send-button.stop mat-icon[fonticon="stop"]');
+      return !stopButton;
+    },
+    null,
+    { timeout: 180000 }
+  );
 
   const responseText = await page.evaluate((selectors) => {
     const responses = document.querySelectorAll(selectors.responseBlock);

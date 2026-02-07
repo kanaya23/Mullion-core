@@ -6,6 +6,7 @@ function createToolExecutor(mullion) {
   async function ensureScraperReady(page, timeout = 10000) {
     await page.waitForFunction(
       () => window.__shoppingAssistantScraper && window.__shoppingAssistantScraper.scrapeListings,
+      null,
       { timeout }
     );
   }
