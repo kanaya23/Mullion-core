@@ -1,0 +1,26 @@
+{
+  "name": "shopping-assistant",
+  "description": "Shopee Shopping Assistant with Gemini AI (native + web modes).",
+  "profile": "shopping-assistant",
+  "entry_url": "https://shopee.co.id/",
+  "timeout": 240,
+  "tab_limit": 6,
+  "permissions": {
+    "origins": [
+      "https://shopee.co.id/*",
+      "https://shopee.com/*",
+      "https://gemini.google.com/*",
+      "https://generativelanguage.googleapis.com/*",
+      "https://google.serper.dev/*"
+    ],
+    "capabilities": ["cookies", "storage", "webRequest", "tabs"]
+  },
+  "ui_path": "stacks/shopping-assistant.html",
+  "content_scripts": [
+    {
+      "matches": ["https://shopee.co.id/*", "https://shopee.com/*"],
+      "js": ["content/shopee-scraper.js", "content/deep-scraper.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
