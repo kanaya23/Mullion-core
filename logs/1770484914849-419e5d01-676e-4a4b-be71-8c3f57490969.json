@@ -1,0 +1,12 @@
+{
+  "id": "419e5d01-676e-4a4b-be71-8c3f57490969",
+  "stack_name": "shopping-assistant",
+  "status": "error",
+  "started_at": "2026-02-07T17:21:42.732Z",
+  "finished_at": "2026-02-07T17:21:54.848Z",
+  "error": {
+    "message": "page.evaluate: TypeError: Failed to set the 'innerHTML' property on 'Element': This document requires 'TrustedHTML' assignment.\n    at eval (eval at evaluate (:290:30), <anonymous>:5:24)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+    "phase": "execution",
+    "stack": "page.evaluate: TypeError: Failed to set the 'innerHTML' property on 'Element': This document requires 'TrustedHTML' assignment.\n    at eval (eval at evaluate (:290:30), <anonymous>:5:24)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at sendPrompt (/home/azureuser/Mullion-core/stacks/shopping-assistant/lib/gemini-web.js:135:14)\n    at async runGeminiWeb (/home/azureuser/Mullion-core/stacks/shopping-assistant/lib/gemini-web.js:228:26)\n    at async module.exports (/home/azureuser/Mullion-core/stacks/shopping-assistant/main.js:113:14)\n    at async runStack (/home/azureuser/Mullion-core/lib/runner.js:145:20)"
+  }
+}

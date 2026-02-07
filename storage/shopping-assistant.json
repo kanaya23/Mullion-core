@@ -1,0 +1,10 @@
+{
+  "settings": {
+    "apiMode": "web",
+    "geminiModel": "gemini-2.5-flash",
+    "geminiMode": "fast",
+    "geminiUrl": "https://gemini.google.com/gem/b59fa9207e25",
+    "geminiApiKey": null,
+    "serperApiKey": null
+  }
+}

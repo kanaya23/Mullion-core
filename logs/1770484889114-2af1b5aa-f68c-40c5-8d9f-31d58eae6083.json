@@ -1,0 +1,18 @@
+{
+  "id": "2af1b5aa-f68c-40c5-8d9f-31d58eae6083",
+  "stack_name": "shopping-assistant",
+  "status": "done",
+  "started_at": "2026-02-07T17:21:25.284Z",
+  "finished_at": "2026-02-07T17:21:29.113Z",
+  "result": {
+    "settings": {
+      "apiMode": "native",
+      "geminiModel": "gemini-2.5-flash",
+      "geminiMode": "fast",
+      "geminiUrl": "https://gemini.google.com/u/0/app",
+      "hasGeminiApiKey": false,
+      "hasSerperApiKey": false
+    },
+    "conversation": []
+  }
+}

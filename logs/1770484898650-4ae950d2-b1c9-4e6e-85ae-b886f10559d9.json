@@ -1,0 +1,18 @@
+{
+  "id": "4ae950d2-b1c9-4e6e-85ae-b886f10559d9",
+  "stack_name": "shopping-assistant",
+  "status": "done",
+  "started_at": "2026-02-07T17:21:37.420Z",
+  "finished_at": "2026-02-07T17:21:38.650Z",
+  "result": {
+    "success": true,
+    "settings": {
+      "apiMode": "web",
+      "geminiModel": "gemini-2.5-flash",
+      "geminiMode": "fast",
+      "geminiUrl": "https://gemini.google.com/gem/b59fa9207e25",
+      "hasGeminiApiKey": false,
+      "hasSerperApiKey": false
+    }
+  }
+}
