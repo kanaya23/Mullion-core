@@ -166,6 +166,10 @@ Example:
 - Stack config: `"ui_path": "stacks/example-stack.html"`
 - File path: `netlify-site/stacks/example-stack.html`
 
+### Included stacks
+
+- `shopping-assistant`: Shopee shopping assistant with Gemini (native + web modes), deep scraping, and the sidebar UI. See `stacks/shopping-assistant/README.md` for login + settings setup.
+
 ### Profiles
 
 Profiles persist login state per stack. Create them once, then reuse:
