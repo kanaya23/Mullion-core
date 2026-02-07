@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Example Stack UI</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Example Stack UI</h1>
+        <p class="subtitle">Custom interface for the example-stack.</p>
+      </header>
+
+      <section class="view">
+        <button class="link-button" id="back-dashboard">← Back to Dashboard</button>
+
+        <div class="params">
+          <label for="note">Optional note</label>
+          <input id="note" type="text" placeholder="Add a note for this run" />
+
+          <label for="capture-title">
+            <input id="capture-title" type="checkbox" checked /> Capture page title
+          </label>
+        </div>
+
+        <button id="run-stack" class="primary">Run Example Stack</button>
+        <div id="run-error" class="error"></div>
+
+        <div id="result" class="result-output hidden"></div>
+      </section>
+    </div>
+
+    <script src="../config.js"></script>
+    <script>
+      const runButton = document.getElementById('run-stack');
+      const runError = document.getElementById('run-error');
+      const result = document.getElementById('result');
+      const noteInput = document.getElementById('note');
+      const captureTitleInput = document.getElementById('capture-title');
+
+      const authHeaders = () => ({
+        Authorization: `Bearer ${MULLION_TOKEN}`,
+        'Content-Type': 'application/json'
+      });
+
+      function showResult(payload) {
+        result.textContent = JSON.stringify(payload, null, 2);
+        result.classList.remove('hidden');
+      }
+
+      async function pollTask(taskId) {
+        const response = await fetch(`${MULLION_URL}/task/${taskId}`, { headers: authHeaders() });
+        if (!response.ok) {
+          runError.textContent = 'Failed to fetch task status.';
+          return;
+        }
+        const data = await response.json();
+        if (data.status === 'done') {
+          showResult(data.result);
+        } else if (data.status === 'error') {
+          runError.textContent = data.error?.message || 'Task failed.';
+        } else {
+          setTimeout(() => pollTask(taskId), 3000);
+        }
+      }
+
+      async function runStack() {
+        runError.textContent = '';
+        result.classList.add('hidden');
+        const params = {
+          note: noteInput.value,
+          captureTitle: captureTitleInput.checked
+        };
+
+        const response = await fetch(`${MULLION_URL}/wake`, {
+          method: 'POST',
+          headers: authHeaders(),
+          body: JSON.stringify({ stack_name: 'example-stack', task_params: params })
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          runError.textContent = errorData.error || 'Failed to start stack.';
+          return;
+        }
+
+        const data = await response.json();
+        pollTask(data.task_id);
+      }
+
+      runButton.addEventListener('click', runStack);
+      document.getElementById('back-dashboard').addEventListener('click', () => {
+        window.location.assign('../index.html');
+      });
+    </script>
+  </body>
+</html>

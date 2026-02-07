@@ -75,7 +75,8 @@ async function listStacks() {
         name: stackConfig.name || entry.name,
         description: stackConfig.description || '',
         permissions: stackConfig.permissions || {},
-        params: stackConfig.params || []
+        params: stackConfig.params || [],
+        ui_path: stackConfig.ui_path || null
       });
     } catch (error) {
       continue;

@@ -8,6 +8,7 @@
     "origins": ["https://example.com/*"],
     "capabilities": ["cookies", "storage", "webRequest", "tabs"]
   },
+  "ui_path": "stacks/example-stack.html",
   "params": [
     {
       "name": "note",

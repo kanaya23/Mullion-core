@@ -94,14 +94,50 @@ function renderStack(stack) {
   title.textContent = stack.name;
   const description = document.createElement('p');
   description.textContent = stack.description || 'No description provided.';
-  const button = document.createElement('button');
-  button.className = 'primary';
-  button.textContent = 'Run';
-  button.addEventListener('click', () => openRunView(stack));
   card.appendChild(title);
   card.appendChild(description);
-  card.appendChild(button);
+
+  const actions = document.createElement('div');
+  actions.className = 'stack-actions';
+
+  if (stack.ui_path) {
+    const openButton = document.createElement('button');
+    openButton.className = 'primary';
+    openButton.textContent = 'Open UI';
+    openButton.addEventListener('click', () => openStackUi(stack));
+    actions.appendChild(openButton);
+
+    const runButton = document.createElement('button');
+    runButton.className = 'secondary';
+    runButton.textContent = 'Run';
+    runButton.addEventListener('click', () => openRunView(stack));
+    actions.appendChild(runButton);
+  } else {
+    const runButton = document.createElement('button');
+    runButton.className = 'primary';
+    runButton.textContent = 'Run';
+    runButton.addEventListener('click', () => openRunView(stack));
+    actions.appendChild(runButton);
+  }
+
+  card.appendChild(actions);
   stackList.appendChild(card);
+}
+
+function normalizeUiPath(uiPath) {
+  if (!uiPath || typeof uiPath !== 'string') return null;
+  if (uiPath.includes('://')) return null;
+  if (!uiPath.startsWith('/')) return `/${uiPath}`;
+  return uiPath;
+}
+
+function openStackUi(stack) {
+  const path = normalizeUiPath(stack.ui_path);
+  if (!path) {
+    alert('Invalid stack UI path.');
+    return;
+  }
+  window.location.assign(path);
 }
 
 function openRunView(stack) {

@@ -125,6 +125,7 @@ All authenticated requests must include `Authorization: Bearer <token>`.
     "origins": ["https://example.com/*"],
     "capabilities": ["cookies", "storage", "webRequest", "tabs"]
   },
+  "ui_path": "stacks/example-stack.html",
   "content_scripts": [
     {
       "matches": ["https://example.com/app/*"],
@@ -156,6 +157,14 @@ Rules:
 - Must export a single async function
 - Must return JSON-serializable data
 - Errors thrown are reported as task failures
+
+### Optional stack UI page
+
+If a stack needs a full HTML interface, add a static page under `netlify-site/` and point to it with `ui_path` in the stack config. The dashboard will show an **Open UI** button that navigates to this page within the same Netlify site.
+
+Example:
+- Stack config: `"ui_path": "stacks/example-stack.html"`
+- File path: `netlify-site/stacks/example-stack.html`
 
 ### Profiles
 

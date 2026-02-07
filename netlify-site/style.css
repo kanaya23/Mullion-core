@@ -123,6 +123,12 @@ header h1 {
   align-self: flex-start;
 }
 
+.stack-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 .primary,
 .secondary,
 .link-button {
