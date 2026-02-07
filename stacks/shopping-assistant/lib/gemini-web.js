@@ -137,8 +137,19 @@ async function sendPrompt(page, promptText) {
       const editor = document.querySelector(selector);
       if (!editor) throw new Error('Gemini Editor not found on page');
       editor.focus();
-      editor.innerHTML = '';
-      editor.innerText = text;
+      editor.textContent = '';
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(editor);
+      range.collapse(true);
+      if (selection) {
+        selection.removeAllRanges();
+        selection.addRange(range);
+      }
+      document.execCommand('insertText', false, text);
+      if (editor.textContent.trim() !== text.trim()) {
+        editor.textContent = text;
+      }
       editor.dispatchEvent(new Event('input', { bubbles: true }));
     },
     { selector: SELECTORS.editableDiv, text: promptText }
